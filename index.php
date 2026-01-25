@@ -25,6 +25,7 @@ if (isLoggedIn()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Emergency Maintenance System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .login-container {
@@ -40,6 +41,19 @@ if (isLoggedIn()) {
             font-weight: bold;
             margin-bottom: 30px;
         }
+
+        .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;       /* distance mula sa right edge ng input */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 1.6rem;    /* size ng icon para match sa input text */
+    bottom: 40px;
+}
+
+
     </style>
 </head>
 <body class="bg-light">
@@ -57,10 +71,12 @@ if (isLoggedIn()) {
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" name="username" required>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
+                <div class="mb-3 position-relative">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+    <i class="fas fa-eye password-toggle" id="passwordToggle"></i>
+</div>
+
                 <button type="submit" name="login" class="btn btn-success w-100">Login</button>
             </form>
             
@@ -71,5 +87,6 @@ if (isLoggedIn()) {
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/viewPassword.js"></script>
 </body>
 </html>

@@ -301,7 +301,6 @@ $openRequests = getOpenEmergencyMaintenances();
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -328,7 +327,6 @@ $openRequests = getOpenEmergencyMaintenances();
         </div>
     </nav>
 
-    <!-- Page Header -->
     <div class="page-header">
         <div class="container-fluid">
             <h1><i class="fas fa-tasks me-2"></i>Open Emergency Maintenance Requests</h1>
@@ -337,7 +335,6 @@ $openRequests = getOpenEmergencyMaintenances();
     </div>
 
     <div class="container-fluid">
-        <!-- Statistics -->
         <div class="stats-container">
             <div class="stat-card">
                 <div class="stat-number"><?php echo count(array_filter($openRequests, function($r) { return $r['PriorityName'] == 'Very High'; })); ?></div>
@@ -357,7 +354,6 @@ $openRequests = getOpenEmergencyMaintenances();
             </div>
         </div>
 
-        <!-- Color Legend -->
         <div class="color-legend-box">
             <h6><i class="fas fa-info-circle me-2"></i>Priority Indicators</h6>
             <div class="row">
@@ -382,7 +378,6 @@ $openRequests = getOpenEmergencyMaintenances();
             </div>
         </div>
 
-        <!-- Requests List -->
         <?php if (empty($openRequests)): ?>
             <div class="empty-state">
                 <i class="fas fa-check-circle"></i>

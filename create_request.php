@@ -6,7 +6,6 @@ requireLogin();
 $assetId = $_GET['asset_id'] ?? 0;
 $priorities = getAllPriorities();
 
-// Check if asset exists and belongs to user
 $assets = getAssetsByEmployee($_SESSION['user_id']);
 $asset = null;
 foreach ($assets as $a) {
@@ -21,7 +20,6 @@ if (!$asset) {
     exit();
 }
 
-// Check for open requests
 if ($asset['OpenRequests'] > 0) {
     header('Location: ap_dashboard.php');
     exit();

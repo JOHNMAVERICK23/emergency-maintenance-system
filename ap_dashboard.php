@@ -260,7 +260,6 @@ $assets = getAssetsByEmployee($_SESSION['user_id']);
         </div>
     </nav>
 
-    <!-- Page Header -->
     <div class="page-header">
         <div class="container-fluid">
             <h1><i class="fas fa-inbox me-2"></i>My Assets</h1>
@@ -269,7 +268,6 @@ $assets = getAssetsByEmployee($_SESSION['user_id']);
     </div>
 
     <div class="container-fluid">
-        <!-- Color Legend -->
         <div class="color-legend-box">
             <h6><i class="fas fa-info-circle me-2"></i>Status Indicators</h6>
             <div class="row">
@@ -288,7 +286,6 @@ $assets = getAssetsByEmployee($_SESSION['user_id']);
             </div>
         </div>
 
-        <!-- Assets List -->
         <?php if (empty($assets)): ?>
             <div class="empty-state">
                 <i class="fas fa-folder-open"></i>

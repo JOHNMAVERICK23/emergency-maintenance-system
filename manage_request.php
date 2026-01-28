@@ -29,12 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $startDate = $_POST['em_start_date'] ?? null;
     $endDate = $_POST['em_end_date'] ?? null;
     $techNote = $_POST['tech_note'] ?? null;
-    
-    // Validation
+
     if ($startDate && strtotime($startDate) < strtotime($request['EMReportDate'])) {
         $error = "Start date cannot be before the report date.";
     } elseif ($endDate && empty($techNote) && empty($request['EMTechnicianNote'])) {
-        // Only error if trying to SET end date WITHOUT tech note AND there's no existing tech note
         $error = "Technician note is required when setting completion date.";
     } else {
         global $pdo;
@@ -45,14 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ");
         
         if ($stmt->execute([$startDate ?: null, $endDate, $techNote ?: $request['EMTechnicianNote'], $emId])) {
-            // Handle parts addition
             if (isset($_POST['parts'])) {
                 foreach ($_POST['parts'] as $part) {
                     if (!empty($part['part_id']) && !empty($part['amount']) && $part['amount'] > 0) {
                         $partId = $part['part_id'];
                         $amount = $part['amount'];
                         
-                        // Check if part replacement is within effective life
                         $stmt2 = $pdo->prepare("SELECT EffectiveLife FROM parts WHERE ID = ?");
                         $stmt2->execute([$partId]);
                         $partInfo = $stmt2->fetch();
@@ -81,7 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Handle part removal
 if (isset($_GET['remove_part'])) {
     $partId = $_GET['remove_part'];
     global $pdo;
@@ -390,7 +385,6 @@ if (isset($_GET['remove_part'])) {
 </head>
 <body class="bg-light">
     <div class="container-fluid mt-4">
-        <!-- Alerts -->
         <?php if (isset($error)): ?>
             <div class="alert alert-danger" role="alert">
                 <i class="fas fa-exclamation-circle me-2"></i>
@@ -412,7 +406,6 @@ if (isset($_GET['remove_part'])) {
             </div>
         <?php endif; ?>
 
-        <!-- Request Details Card -->
         <div class="card shadow-sm mb-4">
             <div class="card-header">
                 <h5><i class="fas fa-file-alt me-2"></i>Emergency Maintenance Request Details</h5>
@@ -501,7 +494,6 @@ if (isset($_GET['remove_part'])) {
             </div>
         </div>
 
-        <!-- Changed Parts Section -->
         <div class="card shadow-sm mb-4">
             <div class="card-header">
                 <h5><i class="fas fa-exchange-alt me-2"></i>Changed Parts</h5>
@@ -544,7 +536,6 @@ if (isset($_GET['remove_part'])) {
             </div>
         </div>
 
-        <!-- Edit Form (only if not completed) -->
         <?php if ($canEdit): ?>
             <div class="form-section">
                 <div class="form-section-title">
@@ -576,7 +567,6 @@ if (isset($_GET['remove_part'])) {
                         <small class="text-muted">Required when setting completion date</small>
                     </div>
                     
-                    <!-- Parts Addition -->
                     <div class="mb-4">
                         <div class="form-section-title">
                             <i class="fas fa-plus-circle me-2"></i>Add Parts

@@ -190,14 +190,12 @@ if (isLoggedIn()) {
             background: #e0e0e0;
         }
 
-        /* Required field indicator */
         .required::after {
             content: ' *';
             color: #d32f2f;
             font-weight: 700;
         }
 
-        /* Loading state */
         .btn-login:disabled {
             opacity: 0.6;
             cursor: not-allowed;
@@ -277,7 +275,6 @@ if (isLoggedIn()) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Password visibility toggle
         const passwordInput = document.getElementById('password');
         const toggleIcon = document.getElementById('passwordToggle');
 
@@ -285,12 +282,10 @@ if (isLoggedIn()) {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
             
-            // Toggle icon
             this.classList.toggle('fa-eye');
             this.classList.toggle('fa-eye-slash');
         });
 
-        // Focus management
         document.getElementById('username').addEventListener('focus', function() {
             this.style.borderColor = '#1a1a1a';
         });

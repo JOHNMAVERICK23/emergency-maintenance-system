@@ -1,5 +1,3 @@
-/* Emergency Maintenance System Styles - White, Black, Gray Palette */
-
 :root {
     --primary-black: #1a1a1a;
     --secondary-black: #333333;
@@ -36,10 +34,6 @@ body {
     line-height: 1.6;
 }
 
-/* ============================================
-   NAVIGATION & HEADER
-   ============================================ */
-
 .navbar-custom {
     background: var(--primary-black);
     box-shadow: var(--shadow-medium);
@@ -75,10 +69,6 @@ body {
     transform: translateY(-1px);
 }
 
-/* ============================================
-   CARDS
-   ============================================ */
-
 .card {
     border: 1px solid var(--light-gray);
     border-radius: var(--border-radius);
@@ -108,9 +98,6 @@ body {
     padding: 2rem;
 }
 
-/* ============================================
-   STAT CARDS
-   ============================================ */
 
 .stat-card {
     background: var(--white);
@@ -136,9 +123,6 @@ body {
     color: var(--medium-gray);
 }
 
-/* ============================================
-   ASSET CARDS
-   ============================================ */
 
 .asset-card {
     border: 2px solid var(--light-gray);
@@ -154,7 +138,6 @@ body {
     box-shadow: var(--shadow-medium);
 }
 
-/* Asset with OPEN request - Red indicator */
 .asset-open {
     border-left: 5px solid var(--accent-red);
     background: linear-gradient(135deg, #fff5f5 0%, var(--white) 100%);
@@ -164,7 +147,6 @@ body {
     border-color: var(--accent-red);
 }
 
-/* Asset with NO open request - Gray indicator */
 .asset-closed {
     border-left: 5px solid var(--medium-gray);
 }
@@ -181,9 +163,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
 
 .btn {
     border: none;
@@ -253,9 +232,6 @@ body {
     font-size: 12px;
 }
 
-/* ============================================
-   BADGES
-   ============================================ */
 
 .badge {
     font-weight: 600;
@@ -285,9 +261,6 @@ body {
     color: var(--white) !important;
 }
 
-/* ============================================
-   FORMS
-   ============================================ */
 
 .form-control {
     border: 2px solid var(--light-gray);
@@ -326,9 +299,6 @@ body {
     color: var(--medium-gray);
 }
 
-/* ============================================
-   TABLES
-   ============================================ */
 
 .table {
     background: var(--white);
@@ -365,9 +335,6 @@ body {
     border: 1px solid var(--light-gray);
 }
 
-/* ============================================
-   ALERTS
-   ============================================ */
 
 .alert {
     border: none;
@@ -412,9 +379,6 @@ body {
     color: #e65100;
 }
 
-/* ============================================
-   PRIORITY INDICATORS
-   ============================================ */
 
 .priority-very-high {
     border-left: 5px solid var(--accent-dark-red);
@@ -441,9 +405,6 @@ body {
     box-shadow: var(--shadow-medium);
 }
 
-/* ============================================
-   STATUS & COLOR LEGEND
-   ============================================ */
 
 .color-legend {
     background: var(--lighter-gray);
@@ -478,9 +439,6 @@ body {
     font-size: 14px;
 }
 
-/* ============================================
-   UTILITIES
-   ============================================ */
 
 .text-muted {
     color: var(--medium-gray) !important;
@@ -506,9 +464,6 @@ body {
     border-color: var(--light-gray) !important;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
 
 @media (max-width: 768px) {
     .container {
@@ -602,9 +557,7 @@ body {
     }
 }
 
-/* ============================================
-   PRINT STYLES
-   ============================================ */
+
 
 @media print {
     body {
